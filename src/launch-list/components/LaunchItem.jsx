@@ -4,31 +4,38 @@ import Paper from '@material-ui/core/Paper';
 import './LaunchItem.css';
 import SpaceshipImage from '../../shared/components/SpaceshipImage';
 import Countdown from 'react-countdown-now';
+import Grid from '@material-ui/core/Grid';
 
 export default class LaunchItem extends Component {
   render() {
     const launch = this.props.launch;
 
     return (
-      <div className="container">
-        <Paper className="paper">
-          <Typography variant="body1">
-            {launch.name}
-          </Typography>
-          <hr />
-          <SpaceshipImage
-            src={launch.rocket.imageURL}
-            size={launch.rocket.imageSizes[0]}
-            alt={launch.rocket.name}
-          />
-          <Typography className="countdown" variant="body1">
-            <Countdown date={launch.windowstart} />
-          </Typography>
-          <Typography variant="body1">
-            {launch.missions[0].description}
-          </Typography>
-        </Paper>
-      </div>
+      <Paper className="paper">
+        <Grid container spacing={12}>
+          <Grid item xs={10}>
+            <Typography variant="body1">{launch.name}</Typography>
+          </Grid>
+          <Grid item xs={2} className="countdown">
+            <Typography variant="body1">
+              <Countdown date={launch.windowstart} />
+            </Typography>
+          </Grid>
+          <Grid item xs={12}>
+            <hr />
+          </Grid>
+          <Grid item xs={2}>
+            <SpaceshipImage
+              src={launch.rocket.imageURL}
+              size={launch.rocket.imageSizes[0]}
+              alt={launch.rocket.name}
+            />
+          </Grid>
+          <Grid item xs={10}>
+            <Typography variant="body1">{launch.missions[0].description}</Typography>
+          </Grid>
+        </Grid>
+      </Paper>
     );
   }
 }

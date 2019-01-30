@@ -6,10 +6,15 @@
   margin: 2rem;
 }
 
-.paper {
+.paper-old {
   grid-column-start: 2;
   grid-row-start: 2;
   height: 100%;
+  padding: 1rem;
+}
+
+.paper {
+  margin: 2rem auto;
   padding: 1rem;
 }
 
@@ -18,5 +23,5 @@
 }
 
 .countdown {
-  float: right;
+  text-align: right;
 }
