@@ -26,7 +26,7 @@ export default class LaunchList extends Component {
 
   render() {
     return (
-      <Grid container justify="center" spacing={16}>
+      <Grid container justify="center" spacing={12}>
         <Grid item xs={7}>
           {this.state.launches.map((launch, index) => (
             <LaunchItem key={index} launch={launch} />
