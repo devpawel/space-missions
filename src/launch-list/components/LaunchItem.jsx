@@ -24,14 +24,24 @@ export default class LaunchItem extends Component {
           <Grid item xs={12}>
             <hr />
           </Grid>
-          <Grid item xs={2}>
+          <Grid item xs={3}>
             <SpaceshipImage
+              className={{ width: '7rem' }}
               src={launch.rocket.imageURL}
               size={launch.rocket.imageSizes[0]}
               alt={launch.rocket.name}
             />
           </Grid>
-          <Grid item xs={10}>
+          <Grid item xs={2}>
+            <Typography variant="body1" className="label">
+              Mission type
+            </Typography>
+            <Typography variant="body1" className="label">
+              Description
+            </Typography>
+          </Grid>
+          <Grid item xs={7}>
+            <Typography variant="body1">{launch.missions[0].typeName}</Typography>
             <Typography variant="body1">{launch.missions[0].description}</Typography>
           </Grid>
         </Grid>

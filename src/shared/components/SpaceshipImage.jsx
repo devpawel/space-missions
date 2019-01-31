@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import './SpaceshipImage.css';
 
 export default class SpaceshipImage extends Component {
   resizeImage() {
@@ -11,6 +10,6 @@ export default class SpaceshipImage extends Component {
   }
 
   render() {
-    return <img className="image-size" src={this.resizeImage()} alt={this.props.alt} />;
+    return <img className={this.props.className} src={this.resizeImage()} alt={this.props.alt} />;
   }
 }
