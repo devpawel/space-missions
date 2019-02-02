@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Typography from '@material-ui/core/Typography';
 import SpaceshipImage from '../../shared/components/SpaceshipImage';
 import Countdown from 'react-countdown-now';
-import './SpaceCard.css';
+import { withRouter } from 'react-router-dom';
 
 const style = {
   root: {
@@ -28,7 +28,7 @@ const style = {
   }
 };
 
-export default class SpaceCard extends Component {
+class SpaceCard extends Component {
   constructor(props) {
     super(props);
 
@@ -43,6 +43,10 @@ export default class SpaceCard extends Component {
     });
   }
 
+  goToDetails() {
+    this.props.history.push(`/details/${this.props.launch.id}`);
+  }
+
   render() {
     // array of image sizes
     // "imageSizes": [320, 480, 640, 720, 768, 800, 960, 1024, 1080, 1280, 1440, 1920]
@@ -52,6 +56,7 @@ export default class SpaceCard extends Component {
     return (
       <div
         style={style.root}
+        onClick={() => this.goToDetails()}
         onMouseEnter={() => this.showDetails(true)}
         onMouseLeave={() => this.showDetails(false)}
       >
@@ -77,29 +82,4 @@ export default class SpaceCard extends Component {
   }
 }
 
-// return (
-//   <div style={style.root} className="root">
-//     <div className="card">
-//       <div className="card-face card-front">
-//           <SpaceshipImage
-//             src={launch.rocket.imageURL}
-//             size={launch.rocket.imageSizes[imageSize]}
-//             alt={launch.rocket.name}
-//           />
-//           <Typography style={style.title} variant="body2">
-//             {launch.name}
-//           </Typography>
-//           <Typography style={style.countdown} variant="body2">
-//             <Countdown date={launch.windowstart} />
-//           </Typography>
-//       </div>
-//       <div className="card-face card-back">
-//         <SpaceshipImage
-//           src={launch.rocket.imageURL}
-//           size={launch.rocket.imageSizes[imageSize]}
-//           alt={launch.rocket.name}
-//         />
-//       </div>
-//     </div>
-//   </div>
-// );
+export default withRouter(SpaceCard);
