@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import config from '../../config/api';
 import LaunchItem from '../components/LaunchItem';
 import Grid from '@material-ui/core/Grid';
+import SpaceCard from '../../shared/components/SpaceCard';
 
 export default class LaunchList extends Component {
   constructor(props) {
@@ -27,11 +28,11 @@ export default class LaunchList extends Component {
   render() {
     return (
       <Grid container justify="center" spacing={12}>
-        <Grid item xs={7}>
-          {this.state.launches.map((launch, index) => (
-            <LaunchItem key={index} launch={launch} />
-          ))}
-        </Grid>
+        {this.state.launches.map((launch, index) => (
+          <Grid item>
+            <SpaceCard key={index} launch={launch} />
+          </Grid>
+        ))}
       </Grid>
     );
   }

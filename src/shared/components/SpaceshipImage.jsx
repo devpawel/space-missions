@@ -10,6 +10,13 @@ export default class SpaceshipImage extends Component {
   }
 
   render() {
-    return <img className={this.props.className} src={this.resizeImage()} alt={this.props.alt} />;
+    return (
+      <img
+        className={this.props.className}
+        style={this.props.style}
+        src={this.resizeImage()}
+        alt={this.props.alt}
+      />
+    );
   }
 }
