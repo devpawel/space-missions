@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import config from '../../config/api';
-import LaunchItem from '../components/LaunchItem';
 import Grid from '@material-ui/core/Grid';
 import SpaceCard from '../../shared/components/SpaceCard';
 
