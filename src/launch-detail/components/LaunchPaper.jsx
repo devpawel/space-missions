@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
-import Paper from '@material-ui/core/Paper';
 import Countdown from 'react-countdown-now';
 import SpaceLink from '../../shared/components/SpaceLink';
 import SpaceshipImage from '../../shared/components/SpaceshipImage';
@@ -22,7 +21,7 @@ const style = {
 export default class LaunchPaper extends Component {
   render() {
     const launch = this.props.launch;
-    const imageSize = 0;
+    const imageSize = 3;
     const launchTime = new Date(launch.windowstart).toUTCString();
 
     const basic = [
@@ -53,15 +52,25 @@ export default class LaunchPaper extends Component {
         label: mission.name,
         value: (
           <div>
-            <p>Mission type: {mission.typeName}</p>
-            <p>Description: {mission.description}</p>
+            <div>
+              <em>
+                <u>Mission type:</u>
+              </em>{' '}
+              {mission.typeName}
+            </div>
+            <div>
+              <em>
+                <u>Description:</u>
+              </em>{' '}
+              {mission.description}
+            </div>
           </div>
         )
       };
     });
 
     const infos = launch.lsp.infoURLs.map(info => (
-      <div>
+      <div key={info}>
         <SpaceLink link={info} text={info} />
         <br />
       </div>
@@ -87,31 +96,29 @@ export default class LaunchPaper extends Component {
     ];
 
     return (
-      <Paper style={style.root}>
-        <Grid container spacing={8}>
-          <Grid item xs={12}>
-            <Typography variant="h4">{launch.name}</Typography>
-          </Grid>
-          <Grid item xs={12}>
-            <hr />
-          </Grid>
-          <Grid item xs={12} sm={3}>
-            <SpaceshipImage
-              style={{ width: '100%' }}
-              src={launch.rocket.imageURL}
-              size={launch.rocket.imageSizes[imageSize]}
-              alt={launch.rocket.name}
-            />
-          </Grid>
-          <Grid item xs={12} sm={9}>
-            <LaunchDetailGroup header={'Basic'} data={basic} />
-            <div style={style.devider} />
-            <LaunchDetailGroup header={'Missions'} data={missions} />
-            <div style={style.devider} />
-            <LaunchDetailGroup header={'Links'} data={links} />
-          </Grid>
+      <Grid container spacing={8} style={style.root}>
+        <Grid item xs={12}>
+          <Typography variant="h4">{launch.name}</Typography>
         </Grid>
-      </Paper>
+        <Grid item xs={12}>
+          <hr />
+        </Grid>
+        <Grid item xs={12} sm={3}>
+          <SpaceshipImage
+            style={{ width: '100%' }}
+            src={launch.rocket.imageURL}
+            size={launch.rocket.imageSizes[imageSize]}
+            alt={launch.rocket.name}
+          />
+        </Grid>
+        <Grid item xs={12} sm={9}>
+          <LaunchDetailGroup header={'Basic'} data={basic} />
+          <div style={style.devider} />
+          <LaunchDetailGroup header={'Missions'} data={missions} />
+          <div style={style.devider} />
+          <LaunchDetailGroup header={'Links'} data={links} />
+        </Grid>
+      </Grid>
     );
   }
 }

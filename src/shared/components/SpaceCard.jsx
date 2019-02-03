@@ -24,7 +24,8 @@ const style = {
     bottom: '0rem',
     width: '100%',
     padding: '0.5rem',
-    backgroundColor: 'rgba(0, 0, 0, 0.7)'
+    backgroundColor: 'rgba(0, 0, 0, 0.7)',
+    color: 'white'
   },
   countdown: {
     position: 'absolute',
@@ -33,10 +34,12 @@ const style = {
     padding: '0.2rem',
     backgroundColor: 'rgba(0, 0, 0, 0.6)',
     fontSize: '0.7rem',
-    textAlign: 'right'
+    textAlign: 'right',
+    color: 'white'
   },
   agency: {
-    textAlign: 'left'
+    textAlign: 'left',
+    color: 'white'
   }
 };
 
