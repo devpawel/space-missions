@@ -1,9 +1,18 @@
 import React, { Component } from 'react';
 import config from '../../config/api';
-import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
-import Paper from '@material-ui/core/Paper';
-import ReactJson from 'react-json-view';
+import LaunchPaper from '../components/LaunchPaper';
+import Loading from '../../shared/components/Loading';
+
+const style = {
+  root: {
+    margin: '1rem 0rem'
+  },
+  loading: {
+    textAlign: 'center',
+    color: 'white'
+  }
+};
 
 export default class LaunchDetail extends Component {
   constructor(props) {
@@ -28,14 +37,11 @@ export default class LaunchDetail extends Component {
 
   render() {
     return (
-      <Grid container justify="center">
-        <Grid item>
-          <Typography variant="body2">
-            <Paper>Hello</Paper>
-          </Typography>
-        </Grid>
-        <Grid item>
-          <ReactJson src={this.state.launch} theme="monokai" />
+      <Grid container justify="center" style={style.root}>
+        <Grid item xs={12} md={8}>
+          <Loading data={this.state.launch} style={style.loading} color={'inherit'} size={100}>
+            <LaunchPaper launch={this.state.launch} />
+          </Loading>
         </Grid>
       </Grid>
     );
