@@ -24,14 +24,16 @@ export default class LaunchDetail extends Component {
   }
 
   componentDidMount() {
-    const url = `${config.baseUrl}/launches/${this.props.match.params.id}`;
+    const url = `${config.baseUrl}/launch/${this.props.match.params.id}`;
     fetch(url)
       .then(res => res.json())
-      .then(res =>
-        this.setState({
+      .then(res => {
+        console.log(res);
+        return this.setState({
+          // launch: res.launches[0]
           launch: res
-        })
-      )
+        });
+      })
       .catch(err => console.log('Error:', err));
   }
 
