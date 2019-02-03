@@ -5,6 +5,7 @@ import Countdown from 'react-countdown-now';
 import SpaceLink from '../../shared/components/SpaceLink';
 import SpaceshipImage from '../../shared/components/SpaceshipImage';
 import LaunchDetailGroup from './LaunchDetailGroup';
+import Paper from '@material-ui/core/Paper';
 
 const style = {
   root: {
@@ -15,6 +16,9 @@ const style = {
   },
   devider: {
     margin: '1rem 0rem'
+  },
+  paper: {
+    padding: '0.5rem'
   }
 };
 
@@ -98,10 +102,9 @@ export default class LaunchPaper extends Component {
     return (
       <Grid container spacing={8} style={style.root}>
         <Grid item xs={12}>
-          <Typography variant="h4">{launch.name}</Typography>
-        </Grid>
-        <Grid item xs={12}>
-          <hr />
+          <Paper style={style.paper} square={true}>
+            <Typography variant="h5">{launch.name}</Typography>
+          </Paper>
         </Grid>
         <Grid item xs={12} sm={3}>
           <SpaceshipImage
