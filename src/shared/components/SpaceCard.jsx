@@ -34,6 +34,9 @@ const style = {
     backgroundColor: 'rgba(0, 0, 0, 0.6)',
     fontSize: '0.7rem',
     textAlign: 'right'
+  },
+  agency: {
+    textAlign: 'left'
   }
 };
 
@@ -77,7 +80,8 @@ class SpaceCard extends Component {
           />
         </div>
         <Typography style={style.countdown} variant="body2">
-          <Countdown date={launch.windowstart} />
+          <div style={style.agency}>{this.props.launch.lsp.name}</div>
+          Launch in: <Countdown date={launch.windowstart} />
         </Typography>
         {this.state.showDetails ? (
           <Typography style={style.title} variant="body2">
