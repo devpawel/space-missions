@@ -12,7 +12,7 @@ export default class LaunchItem extends Component {
 
     return (
       <Paper className="paper">
-        <Grid container spacing={12}>
+        <Grid container>
           <Grid item xs={10}>
             <Typography variant="body1">{launch.name}</Typography>
           </Grid>

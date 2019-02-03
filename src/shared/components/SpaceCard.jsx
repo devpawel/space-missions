@@ -8,7 +8,16 @@ const style = {
   root: {
     position: 'relative',
     cursor: 'pointer',
-    margin: '1rem'
+    margin: '1rem',
+    width: '320px',
+    height: '480px',
+    backgroundImage: 'radial-gradient(circle, #cacaca, #b8b8b8)'
+  },
+  imageContainer: {
+    height: '100%',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center'
   },
   title: {
     position: 'absolute',
@@ -60,11 +69,13 @@ class SpaceCard extends Component {
         onMouseEnter={() => this.showDetails(true)}
         onMouseLeave={() => this.showDetails(false)}
       >
-        <SpaceshipImage
-          src={launch.rocket.imageURL}
-          size={launch.rocket.imageSizes[imageSize]}
-          alt={launch.rocket.name}
-        />
+        <div style={style.imageContainer}>
+          <SpaceshipImage
+            src={launch.rocket.imageURL}
+            size={launch.rocket.imageSizes[imageSize]}
+            alt={launch.rocket.name}
+          />
+        </div>
         <Typography style={style.countdown} variant="body2">
           <Countdown date={launch.windowstart} />
         </Typography>
