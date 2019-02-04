@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import config from '../../config/api';
-import Grid from '@material-ui/core/Grid';
+import { Grid } from '@material-ui/core';
 import SpaceCard from '../../shared/components/SpaceCard';
 
 export default class LaunchList extends Component {

@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import Typography from '@material-ui/core/Typography';
-import SpaceshipImage from '../../shared/components/SpaceshipImage';
-import Countdown from 'react-countdown-now';
 import { withRouter } from 'react-router-dom';
+import Countdown from 'react-countdown-now';
+import { Typography } from '@material-ui/core';
+import SpaceshipImage from '../../shared/components/SpaceshipImage';
 
 const style = {
   root: {

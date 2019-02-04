@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
-import Typography from '@material-ui/core/Typography';
-import Grid from '@material-ui/core/Grid';
 import Countdown from 'react-countdown-now';
+import { Grid, Paper, Typography } from '@material-ui/core';
 import SpaceLink from '../../shared/components/SpaceLink';
 import SpaceshipImage from '../../shared/components/SpaceshipImage';
 import LaunchDetailGroup from './LaunchDetailGroup';
-import Paper from '@material-ui/core/Paper';
 
 const style = {
   root: {

@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
-import Typography from '@material-ui/core/Typography';
-import Paper from '@material-ui/core/Paper';
-import './LaunchItem.css';
-import SpaceshipImage from '../../shared/components/SpaceshipImage';
 import Countdown from 'react-countdown-now';
-import Grid from '@material-ui/core/Grid';
+import { Grid, Paper, Typography } from '@material-ui/core';
+import SpaceshipImage from '../../shared/components/SpaceshipImage';
+import './LaunchItem.css';
 
 export default class LaunchItem extends Component {
   render() {

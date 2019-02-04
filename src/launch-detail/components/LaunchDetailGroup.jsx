@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
-import Typography from '@material-ui/core/Typography';
-import ExpansionPanel from '@material-ui/core/ExpansionPanel';
-import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
-import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import {
+  ExpansionPanel,
+  ExpansionPanelDetails,
+  ExpansionPanelSummary,
+  Typography
+} from '@material-ui/core';
+import { ExpandMore } from '@material-ui/icons';
 
 const style = {
   label: {
@@ -18,7 +20,7 @@ export default class dataDetailGroup extends Component {
     return (
       <div>
         <ExpansionPanel defaultExpanded square={true}>
-          <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
+          <ExpansionPanelSummary expandIcon={<ExpandMore />}>
             <Typography variant="subtitle1">{this.props.header}</Typography>
           </ExpansionPanelSummary>
           <ExpansionPanelDetails>
