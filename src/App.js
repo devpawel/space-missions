@@ -4,6 +4,7 @@ import { withStyles } from '@material-ui/core/styles';
 import LaunchList from './launch-list/containers/LaunchList';
 import LaunchDetail from './launch-detail/containers/LaunchDetail';
 import background from './assets/images/hubble_photo_2.jpg';
+import BottomNav from './core/components/BottomNav';
 
 const styles = theme => ({
   '@global': {
@@ -18,16 +19,29 @@ const styles = theme => ({
   }
 });
 
+const style = {
+  router: {
+    marginBottom: '3.5rem'
+  }
+};
+
 class App extends Component {
   render() {
     return (
-      <Router>
-        <Switch>
-          <Route exact path="/" component={LaunchList} />
-          <Route path="/details/:id" component={LaunchDetail} />
-          <Redirect to="/" push />
-        </Switch>
-      </Router>
+      <div>
+        <Router>
+          <Switch>
+            <div>
+              <div style={style.router}>
+                <Route exact path="/" component={LaunchList} />
+                <Route path="/details/:id" component={LaunchDetail} />
+                <Redirect to="/" push />
+              </div>
+              <BottomNav />
+            </div>
+          </Switch>
+        </Router>
+      </div>
     );
   }
 }
