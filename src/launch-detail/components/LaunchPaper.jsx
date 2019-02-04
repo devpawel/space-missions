@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import Countdown from 'react-countdown-now';
-import { Grid, Paper, Typography } from '@material-ui/core';
+import favoriteService from '../../core/services/favoriteService';
+import { Grid, IconButton, Paper, Typography } from '@material-ui/core';
+import { Favorite } from '@material-ui/icons';
 import SpaceLink from '../../shared/components/SpaceLink';
 import SpaceshipImage from '../../shared/components/SpaceshipImage';
 import LaunchDetailGroup from './LaunchDetailGroup';
@@ -21,6 +23,10 @@ const style = {
 };
 
 export default class LaunchPaper extends Component {
+  addToFavorites(launch) {
+    favoriteService.setFavorite(launch);
+  }
+
   render() {
     const launch = this.props.launch;
     const imageSize = 3;
@@ -111,6 +117,9 @@ export default class LaunchPaper extends Component {
             size={launch.rocket.imageSizes[imageSize]}
             alt={launch.rocket.name}
           />
+          <IconButton onClick={() => this.addToFavorites(launch)}>
+            <Favorite />
+          </IconButton>
         </Grid>
         <Grid item xs={12} sm={9}>
           <LaunchDetailGroup header={'Basic'} data={basic} />

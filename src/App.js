@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
 import { withStyles } from '@material-ui/core/styles';
+import BottomNav from './core/components/BottomNav';
 import LaunchList from './launch-list/containers/LaunchList';
 import LaunchDetail from './launch-detail/containers/LaunchDetail';
+import Favorites from './favorites/containers/Favorites';
 import background from './assets/images/hubble_photo_2.jpg';
-import BottomNav from './core/components/BottomNav';
 
 const styles = theme => ({
   '@global': {
@@ -35,6 +36,7 @@ class App extends Component {
               <div style={style.router}>
                 <Route exact path="/" component={LaunchList} />
                 <Route path="/details/:id" component={LaunchDetail} />
+                <Route exact path="/favorites" component={Favorites} />
                 <Redirect to="/" push />
               </div>
               <BottomNav />

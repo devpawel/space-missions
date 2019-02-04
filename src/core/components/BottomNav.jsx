@@ -32,7 +32,12 @@ class BottomNav extends Component {
     return (
       <BottomNavigation style={style.nav} showLabels>
         <BottomNavigationAction label="List" component={Link} to="/" icon={<ViewModule />} />
-        <BottomNavigationAction label="Favorites" icon={<Favorite />} />
+        <BottomNavigationAction
+          label="Favorites"
+          component={Link}
+          to="/favorites"
+          icon={<Favorite />}
+        />
       </BottomNavigation>
     );
   }
