@@ -5,6 +5,7 @@ import BottomNav from './core/components/BottomNav';
 import LaunchList from './launch-list/containers/LaunchList';
 import LaunchDetail from './launch-detail/containers/LaunchDetail';
 import Favorites from './favorites/containers/Favorites';
+import Chat from './chat/container/Chat';
 import background from './assets/images/hubble_photo_2.jpg';
 
 const styles = theme => ({
@@ -29,21 +30,20 @@ const style = {
 class App extends Component {
   render() {
     return (
-      <div>
-        <Router>
-          <Switch>
-            <div>
-              <div style={style.router}>
-                <Route exact path="/" component={LaunchList} />
-                <Route path="/details/:id" component={LaunchDetail} />
-                <Route exact path="/favorites" component={Favorites} />
-                <Redirect to="/" push />
-              </div>
-              <BottomNav />
-            </div>
-          </Switch>
-        </Router>
-      </div>
+      <Router>
+        <div>
+          <div style={style.router}>
+            <Switch>
+              <Route exact path="/" component={LaunchList} />
+              <Route path="/details/:id" component={LaunchDetail} />
+              <Route path="/favorites" component={Favorites} />
+              <Route path="/chat" component={Chat} />
+              <Redirect to="/" push />
+            </Switch>
+          </div>
+          <BottomNav />
+        </div>
+      </Router>
     );
   }
 }
