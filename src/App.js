@@ -5,7 +5,7 @@ import BottomNav from './core/components/BottomNav';
 import LaunchList from './launch-list/containers/LaunchList';
 import LaunchDetail from './launch-detail/containers/LaunchDetail';
 import Favorites from './favorites/containers/Favorites';
-import Chat from './chat/container/Chat';
+import ChatIO from './chat/container/ChatIO';
 import background from './assets/images/hubble_photo_2.jpg';
 
 const styles = theme => ({
@@ -37,7 +37,7 @@ class App extends Component {
               <Route exact path="/" component={LaunchList} />
               <Route path="/details/:id" component={LaunchDetail} />
               <Route path="/favorites" component={Favorites} />
-              <Route path="/chat" component={Chat} />
+              <Route path="/chat" component={ChatIO} />
               <Redirect to="/" push />
             </Switch>
           </div>
