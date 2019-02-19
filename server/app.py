@@ -11,16 +11,16 @@ if __name__ == "__main__":
 
 @socketio.on("connect")
 def connect():
-    emit("connect", "User connected", broadcast=True)
+    print("User connected")
 
 
 @socketio.on("disconnect")
 def disconnect():
-    emit("disconnect", "User disconnected", broadcast=True)
+    print("User disconnected")
 
 
 @socketio.on("message")
 def handle_message(message):
     print(message)
-    emit("message", message, broadcast=True)
+    send(message, broadcast=True)
 

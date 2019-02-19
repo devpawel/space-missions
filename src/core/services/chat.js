@@ -10,22 +10,17 @@ export default class Chat {
 
   connect() {
     const connectMessage = 'User connected';
-    const disconnectMessage = 'User disconnected';
 
     this.socket.on('connect', () => {
       this.socket.emit('message', connectMessage);
     });
-
-    this.socket.on('disconnect', () => {
-      this.socket.emit('message', disconnectMessage);
-    });
   }
 
   disconnect() {
-    const message = 'User connected';
+    const disconnectMessage = 'User disconnected';
 
     this.socket.on('disconnect', () => {
-      this.socket.emit('message', message);
+      this.socket.emit('message', disconnectMessage);
     });
   }
 
