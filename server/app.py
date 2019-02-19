@@ -9,6 +9,11 @@ if __name__ == "__main__":
     socketio.run(app)
 
 
+@app.route("/")
+def index():
+    return render_template("index.html")
+
+
 @socketio.on("connect")
 def connect():
     print("User connected")

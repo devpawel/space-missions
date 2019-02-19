@@ -28,7 +28,6 @@ export default class LaunchDetail extends Component {
     fetch(url)
       .then(res => res.json())
       .then(res => {
-        console.log(res);
         return this.setState({
           launch: res.launches[0]
           // launch: res
