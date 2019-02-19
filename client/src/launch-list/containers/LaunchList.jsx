@@ -13,14 +13,14 @@ export default class LaunchList extends Component {
   }
 
   componentDidMount() {
-    // const url = `${config.baseUrl}/launch/next/5`;
-    const url = `${config.baseUrl}/launch`;
+    const url = `${config.baseUrl}/launch/next/5`;
+    // const url = `${config.baseUrl}/launch`;
     fetch(url)
       .then(res => res.json())
       .then(res =>
         this.setState({
-          // launches: res.launches
-          launches: res
+          launches: res.launches
+          // launches: res
         })
       )
       .catch(err => console.log('Error:', err));

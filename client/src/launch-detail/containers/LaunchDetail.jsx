@@ -30,8 +30,8 @@ export default class LaunchDetail extends Component {
       .then(res => {
         console.log(res);
         return this.setState({
-          // launch: res.launches[0]
-          launch: res
+          launch: res.launches[0]
+          // launch: res
         });
       })
       .catch(err => console.log('Error:', err));

@@ -86,7 +86,7 @@ class SpaceCard extends Component {
           <div style={style.agency}>{this.props.launch.lsp.name}</div>
           Launch in: <Countdown date={launch.windowstart} />
         </Typography>
-        {this.state.showDetails ? (
+        {this.state.showDetails && launch.missions.length > 0 ? (
           <Typography style={style.title} variant="body2">
             {launch.missions[0].description}
           </Typography>
