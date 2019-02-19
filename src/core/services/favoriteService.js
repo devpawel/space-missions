@@ -28,4 +28,9 @@ function removeFavorite(launch) {
   localStorage.setItem(config.favoritesKey, JSON.stringify(filteredFavorites));
 }
 
-export default { getFavorites, setFavorite, removeFavorite };
+function isFavorite(launch) {
+  const favorites = this.getFavorites();
+  return favorites.some(favorite => favorite.id === launch.id);
+}
+
+export default { getFavorites, setFavorite, removeFavorite, isFavorite };

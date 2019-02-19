@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Countdown from 'react-countdown-now';
 import favoriteService from '../../core/services/favoriteService';
 import { Grid, IconButton, Paper, Typography } from '@material-ui/core';
-import { Favorite } from '@material-ui/icons';
+import { Favorite, Clear } from '@material-ui/icons';
 import SpaceLink from '../../shared/components/SpaceLink';
 import SpaceshipImage from '../../shared/components/SpaceshipImage';
 import LaunchDetailGroup from './LaunchDetailGroup';
@@ -23,8 +23,33 @@ const style = {
 };
 
 export default class LaunchPaper extends Component {
-  addToFavorites(launch) {
-    favoriteService.setFavorite(launch);
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      isFavorite: false
+    };
+  }
+
+  componentDidMount() {
+    const isFavorite = favoriteService.isFavorite(this.props.launch);
+    this.setIsFavorite(isFavorite);
+  }
+
+  setIsFavorite(value) {
+    this.setState({
+      isFavorite: value
+    });
+  }
+
+  handleFavorite(launch) {
+    if (this.state.isFavorite) {
+      favoriteService.removeFavorite(launch);
+      this.setIsFavorite(false);
+    } else {
+      favoriteService.setFavorite(launch);
+      this.setIsFavorite(true);
+    }
   }
 
   render() {
@@ -117,8 +142,8 @@ export default class LaunchPaper extends Component {
             size={launch.rocket.imageSizes[imageSize]}
             alt={launch.rocket.name}
           />
-          <IconButton onClick={() => this.addToFavorites(launch)}>
-            <Favorite />
+          <IconButton onClick={() => this.handleFavorite(launch)}>
+            {this.state.isFavorite ? <Clear /> : <Favorite />}
           </IconButton>
         </Grid>
         <Grid item xs={12} sm={9}>
