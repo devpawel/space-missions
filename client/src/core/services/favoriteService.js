@@ -1,7 +1,14 @@
 import config from '../../config/api';
 
 function getFavorites() {
-  return JSON.parse(localStorage.getItem(config.favoritesKey));
+  const storage = JSON.parse(localStorage.getItem(config.favoritesKey));
+
+  if (!storage) {
+    localStorage.setItem(config.favoritesKey, JSON.stringify([]));
+    return [];
+  }
+
+  return storage;
 }
 
 function setFavorite(launch) {
