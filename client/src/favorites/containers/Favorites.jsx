@@ -34,8 +34,8 @@ export default class Favorites extends Component {
     return (
       <div>
         <Grid container justify="center" style={style.root}>
-          {this.state.favorites.map(favorite => (
-            <Grid item>
+          {this.state.favorites.map((favorite, index) => (
+            <Grid item key={index}>
               <SpaceCard launch={favorite} />
             </Grid>
           ))}

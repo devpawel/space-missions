@@ -59,43 +59,51 @@ export default class LaunchPaper extends Component {
 
     const basic = [
       {
-        label: 'Space agency',
-        value: launch.lsp.name
+        label: <Typography>Space agency</Typography>,
+        value: <Typography>{launch.lsp.name}</Typography>
       },
       {
-        label: 'Launch time',
-        value: launchTime
+        label: <Typography>Launch time</Typography>,
+        value: <Typography>{launchTime}</Typography>
       },
       {
-        label: 'Countdown',
-        value: <Countdown date={launch.windowstart} />
+        label: <Typography>Countdown</Typography>,
+        value: (
+          <Typography>
+            <Countdown date={launch.windowstart} />
+          </Typography>
+        )
       },
       {
-        label: 'Location',
-        value: launch.location.name
+        label: <Typography>Location</Typography>,
+        value: <Typography>{launch.location.name}</Typography>
       },
       {
-        label: 'Rocket',
-        value: launch.rocket.name
+        label: <Typography>Rocket</Typography>,
+        value: <Typography>{launch.rocket.name}</Typography>
       }
     ];
 
     const missions = launch.missions.map(mission => {
       return {
-        label: mission.name,
+        label: <Typography>{mission.name}</Typography>,
         value: (
           <div>
             <div>
-              <em>
-                <u>Mission type:</u>
-              </em>{' '}
-              {mission.typeName}
+              <Typography>
+                <em>
+                  <u>Mission type:</u>
+                </em>{' '}
+                {mission.typeName}
+              </Typography>
             </div>
             <div>
-              <em>
-                <u>Description:</u>
-              </em>{' '}
-              {mission.description}
+              <Typography>
+                <em>
+                  <u>Description:</u>
+                </em>{' '}
+                {mission.description}
+              </Typography>
             </div>
           </div>
         )
@@ -104,27 +112,40 @@ export default class LaunchPaper extends Component {
 
     const infos = launch.lsp.infoURLs.map(info => (
       <div key={info}>
-        <SpaceLink link={info} text={info} />
-        <br />
+        <Typography variant="caption">
+          <SpaceLink link={info} text={info} />
+        </Typography>
       </div>
     ));
 
     const links = [
       {
-        label: 'Space agency info',
+        label: <Typography>Space agency info</Typography>,
         value: <div>{infos}</div>
       },
       {
-        label: 'Space agency wiki',
-        value: <SpaceLink link={launch.lsp.wikiURL} text={launch.lsp.wikiURL} />
+        label: <Typography>Space agency wiki</Typography>,
+        value: (
+          <Typography variant="caption">
+            <SpaceLink link={launch.lsp.wikiURL} text={launch.lsp.wikiURL} />
+          </Typography>
+        )
       },
       {
-        label: 'Rocket info',
-        value: <SpaceLink link={launch.rocket.infoURL} text={launch.rocket.infoURL} />
+        label: <Typography>Rocket info</Typography>,
+        value: (
+          <Typography variant="caption">
+            <SpaceLink link={launch.rocket.infoURL} text={launch.rocket.infoURL} />
+          </Typography>
+        )
       },
       {
-        label: 'Rocket wiki',
-        value: <SpaceLink link={launch.rocket.wikiURL} text={launch.rocket.wikiURL} />
+        label: <Typography>Rocket wiki</Typography>,
+        value: (
+          <Typography variant="caption">
+            <SpaceLink link={launch.rocket.wikiURL} text={launch.rocket.wikiURL} />
+          </Typography>
+        )
       }
     ];
 

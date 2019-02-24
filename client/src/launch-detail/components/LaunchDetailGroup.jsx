@@ -26,15 +26,11 @@ export default class dataDetailGroup extends Component {
           <ExpansionPanelDetails>
             <table>
               <tbody>
-                {data.map(item => {
+                {data.map((item, index) => {
                   return (
-                    <tr key={item.label}>
-                      <td style={style.label}>
-                        <Typography>{item.label}</Typography>
-                      </td>
-                      <td>
-                        <Typography>{item.value}</Typography>
-                      </td>
+                    <tr key={index}>
+                      <td style={style.label}>{item.label}</td>
+                      <td>{item.value}</td>
                     </tr>
                   );
                 })}
