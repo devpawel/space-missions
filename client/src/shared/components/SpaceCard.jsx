@@ -25,6 +25,7 @@ const style = {
     width: '100%',
     padding: '0.5rem',
     backgroundColor: 'rgba(0, 0, 0, 0.7)',
+    fontSize: '0.7rem',
     color: 'white'
   },
   countdown: {
@@ -33,9 +34,11 @@ const style = {
     width: '100%',
     padding: '0.2rem',
     backgroundColor: 'rgba(0, 0, 0, 0.6)',
-    fontSize: '0.7rem',
     textAlign: 'right',
-    color: 'white'
+    text: {
+      fontSize: '0.7rem',
+      color: 'white'
+    }
   },
   agency: {
     textAlign: 'left',
@@ -84,18 +87,20 @@ class SpaceCard extends Component {
         </div>
         <div style={style.countdown}>
           <div style={style.agency}>
-            <Typography variant="body2">{this.props.launch.lsp.name}</Typography>
+            <Typography style={style.countdown.text} variant="caption">
+              {this.props.launch.lsp.name}
+            </Typography>
           </div>
-          <Typography variant="body2">
+          <Typography style={style.countdown.text} variant="caption">
             Launch in: <Countdown date={launch.windowstart} />
           </Typography>
         </div>
         {this.state.showDetails && launch.missions.length > 0 ? (
-          <Typography style={style.title} variant="body2">
+          <Typography style={style.title} variant="body1">
             {launch.missions[0].description}
           </Typography>
         ) : (
-          <Typography style={style.title} variant="body2">
+          <Typography style={style.title} variant="body1">
             {launch.name}
           </Typography>
         )}
