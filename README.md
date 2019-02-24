@@ -15,7 +15,7 @@ Website showing space missions and launches
 
 # Running react app
 
-Run `bash run_react_app.sh`
+Run `bash run_react_app.sh` script from main directory.
 
 Windows: You can use bash installed with git.
 
@@ -23,6 +23,6 @@ Windows: You can use bash installed with git.
 
 Installing dependencies and build app will take few minutes.
 
-Run `bash run_flask_app.sh`
+Run `bash run_flask_app.sh` script from main directory.
 
 Windows: You can use bash installed with git.
