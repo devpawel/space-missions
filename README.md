@@ -4,12 +4,12 @@ Website showing space missions and launches
 
 # Goals of this project
 
-- create app simple to follow space missions
+- create simple app to follow space missions
 - learn react
 
 # Prerequisites
 
-- node.js (tested with 10.15.0)
+- node (tested with 10.15.0)
 - yarn ( `npm install -g yarn` )
 - python 3.4 or higher
 
@@ -17,11 +17,11 @@ Website showing space missions and launches
 
 ## Linux
 
-Run `./run_react_app.sh`
+Run `bash run_react_app.sh`
 
 ## Windows
 
-You can use bash installed with git. If you don't have it try reinstalling git with this option selected.
+You can use bash installed with git.
 
 Run `bash run_react_app.sh` from bash
 
