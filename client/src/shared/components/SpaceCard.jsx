@@ -19,6 +19,9 @@ const style = {
     alignItems: 'center',
     justifyContent: 'center'
   },
+  image: {
+    width: '100%'
+  },
   title: {
     position: 'absolute',
     bottom: '0rem',
@@ -83,6 +86,7 @@ class SpaceCard extends Component {
             src={launch.rocket.imageURL}
             size={launch.rocket.imageSizes[imageSize]}
             alt={launch.rocket.name}
+            style={style.image}
           />
         </div>
         <div style={style.countdown}>
