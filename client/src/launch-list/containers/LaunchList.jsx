@@ -30,8 +30,8 @@ export default class LaunchList extends Component {
     return (
       <Grid container justify="center">
         {this.state.launches.map((launch, index) => (
-          <Grid item>
-            <SpaceCard key={index} launch={launch} />
+          <Grid item key={index}>
+            <SpaceCard launch={launch} />
           </Grid>
         ))}
       </Grid>
