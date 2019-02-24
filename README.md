@@ -15,16 +15,14 @@ Website showing space missions and launches
 
 # Running react app
 
-## Linux
-
 Run `bash run_react_app.sh`
 
-## Windows
-
-You can use bash installed with git.
-
-Run `bash run_react_app.sh` from bash
+Windows: You can use bash installed with git.
 
 # Running app from flask
 
 Installing dependencies and build app will take few minutes.
+
+Run `bash run_flask_app.sh`
+
+Windows: You can use bash installed with git.
